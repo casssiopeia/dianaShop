@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа - Ретро и Винтаж</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Ретро и Винтаж</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="products.html">Товары</a></li>
+                <li><a href="cart.html">Корзина (<span id="cart-count">0</span>)</a></li>
+                <li><a href="orders.html">Мои заказы</a></li>
+                <li><a href="complaint.html">Обращения</a></li>
+                <li><a href="info.html">Юридическая информация</a></li>
+                        </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="checkout-page">
+                <h1>Оформление заказа</h1>
+                <p class="page-subtitle">Завершите ваш заказ, заполнив информацию ниже</p>
+                
+                <div class="checkout-content">
+                    <div class="checkout-form-section">
+                        <form id="checkout-form" class="checkout-form">
+                            <!-- Информация о покупателе -->
+                            <section class="form-section">
+                                <h2>👤 Информация о покупателе</h2>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="name">ФИО *</label>
+                                        <input type="text" id="name" name="name" required placeholder="Иванов Иван Иванович">
+                                        <span class="error-message" id="name-error"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone">Телефон *</label>
+                                        <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 999-99-99">
+                                        <span class="error-message" id="phone-error"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email *</label>
+                                        <input type="email" id="email" name="email" required placeholder="ivanov@example.ru">
+                                        <span class="error-message" id="email-error"></span>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Адрес доставки -->
+                            <section class="form-section">
+                                <h2>🏠 Адрес доставки</h2>
+                                <div class="form-group">
+                                    <label for="address">Полный адрес *</label>
+                                    <textarea id="address" name="address" required placeholder="г. Москва, ул. Примерная, д. 1, кв. 1" rows="3"></textarea>
+                                    <span class="error-message" id="address-error"></span>
+                                </div>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label for="city">Город *</label>
+                                        <input type="text" id="city" name="city" required placeholder="Москва">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="postal-code">Индекс</label>
+                                        <input type="text" id="postal-code" name="postal-code" placeholder="123456">
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Способ доставки -->
+                            <section class="form-section">
+                                <h2>🚚 Способ доставки</h2>
+                                <div class="delivery-options">
+                                    <label class="delivery-option">
+                                        <input type="radio" name="delivery" value="courier" checked>
+                                        <div class="option-content">
+                                            <span class="option-title">Курьерская доставка</span>
+                                            <span class="option-price" id="delivery-courier-price">300 ₽</span>
+                                            <span class="option-description">1-3 рабочих дня, бесплатно при заказе от 5000 ₽</span>
+                                        </div>
+                                    </label>
+                                    <label class="delivery-option">
+                                        <input type="radio" name="delivery" value="post">
+                                        <div class="option-content">
+                                            <span class="option-title">Почта России</span>
+                                            <span class="option-price">400 ₽</span>
+                                            <span class="option-description">7-14 рабочих дней по всей России</span>
+                                        </div>
+                                    </label>
+                                    <label class="delivery-option">
+                                        <input type="radio" name="delivery" value="pickup">
+                                        <div class="option-content">
+                                            <span class="option-title">Самовывоз</span>
+                                            <span class="option-price">Бесплатно</span>
+                                            <span class="option-description">г. Москва, ул. Винтажная, д. 15</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </section>
+
+                            <!-- Способ оплаты -->
+                            <section class="form-section">
+                                <h2>💳 Способ оплаты</h2>
+                                <div class="payment-options">
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment-method" value="card" checked>
+                                        <div class="option-content">
+                                            <span class="option-title">Банковская карта</span>
+                                            <span class="option-description">Visa, MasterCard, Мир</span>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment-method" value="cash">
+                                        <div class="option-content">
+                                            <span class="option-title">Наложенный платеж</span>
+                                            <span class="option-description">Оплата при получении заказа</span>
+                                        </div>
+                                    </label>
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment-method" value="online">
+                                        <div class="option-content">
+                                            <span class="option-title">Электронные кошельки</span>
+                                            <span class="option-description">ЮMoney, Qiwi</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </section>
+
+                            <!-- Комментарий к заказу -->
+                            <section class="form-section">
+                                <h2>📝 Комментарий к заказу</h2>
+                                <div class="form-group">
+                                    <textarea id="comments" name="comments" placeholder="Дополнительные пожелания к заказу, время доставки и т.д." rows="4"></textarea>
+                                </div>
+                            </section>
+
+                            <!-- Соглашения -->
+                            <section class="form-section">
+                                <label class="checkbox-agreement">
+                                    <input type="checkbox" id="privacy-policy" required>
+                                    <span class="checkmark"></span>
+                                    Я соглашаюсь с <a href="info.html" target="_blank">политикой конфиденциальности</a> и обработкой персональных данных *
+                                </label>
+                                <label class="checkbox-agreement">
+                                    <input type="checkbox" id="terms" required>
+                                    <span class="checkmark"></span>
+                                    Я принимаю <a href="info.html" target="_blank">условия пользовательского соглашения</a> *
+                                </label>
+                            </section>
+
+                            <button type="submit" class="btn submit-order-btn" id="submit-order">
+                                <span>Подтвердить заказ</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="order-summary-section">
+                        <div class="summary-card">
+                            <h3>Ваш заказ</h3>
+                            
+                            <div class="order-items-preview" id="order-items-preview">
+                                <!-- Товары будут добавлены через JavaScript -->
+                            </div>
+                            
+                            <div class="summary-details">
+                                <div class="summary-line">
+                                    <span>Товары (<span id="summary-items-count">0</span>):</span>
+                                    <span id="summary-items-total">0 ₽</span>
+                                </div>
+                                
+                                <div class="summary-line">
+                                    <span>Доставка:</span>
+                                    <span id="summary-shipping">0 ₽</span>
+                                </div>
+                                
+                                <div class="summary-line discount">
+                                    <span>Скидка:</span>
+                                    <span>-<span id="summary-discount">0 ₽</span></span>
+                                </div>
+                                
+                                <div class="summary-total">
+                                    <span>К оплате:</span>
+                                    <span id="summary-final-total">0 ₽</span>
+                                </div>
+                            </div>
+
+                            <div class="security-badges">
+                                <div class="security-badge">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <span>Безопасная оплата</span>
+                                </div>
+                                <div class="security-badge">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M2 12C2 12 5 5 12 5C19 5 22 12 22 12C22 12 19 19 12 19C5 19 2 12 2 12Z" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <span>Конфиденциальность</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>Телефон: +7 (495) 123-45-67</p>
+                    <p>Email: info@retro-vintage.ru</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Режим работы</h4>
+                    <p>Пн-Пт: 9:00-18:00</p>
+                    <p>Сб-Вс: 10:00-16:00</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Юридическая информация</h4>
+                    <p><a href="info.html">Вся юридическая информация</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    
+    <script>
+        // Скрипт для отображения корзины на странице оформления заказа
+        function updateCheckoutSummary() {
+            const cart = RetroShop.cart;
+            const itemsPreview = document.getElementById('order-items-preview');
+            const itemsTotalElement = document.getElementById('summary-items-total');
+            const itemsCountElement = document.getElementById('summary-items-count');
+            const shippingElement = document.getElementById('summary-shipping');
+            const finalTotalElement = document.getElementById('summary-final-total');
+            const submitButton = document.getElementById('submit-order');
+
+            if (!itemsPreview) return;
+
+            // Проверяем, есть ли товары в корзине
+            if (cart.items.length === 0) {
+                itemsPreview.innerHTML = `
+                    <div class="empty-cart-message">
+                        <p>Корзина пуста</p>
+                        <a href="products.html" class="btn">Перейти к товарам</a>
+                    </div>
+                `;
+                if (submitButton) submitButton.disabled = true;
+                return;
+            }
+
+            // Отображаем товары
+            let itemsHTML = '';
+            cart.items.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                itemsHTML += `
+                    <div class="order-item-preview">
+                        <div class="order-item-image">
+                            <img src="${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/60x60/2d2d2d/ffffff?text=Товар'">
+                        </div>
+                        <div class="order-item-details">
+                            <div class="order-item-name">${item.name}</div>
+                            <div class="order-item-meta">${item.quantity} × ${RetroShop.utils.formatPrice(item.price)}</div>
+                        </div>
+                        <div class="order-item-total">${RetroShop.utils.formatPrice(itemTotal)}</div>
+                    </div>
+                `;
+            });
+
+            itemsPreview.innerHTML = itemsHTML;
+
+            // Обновляем суммы
+            if (itemsTotalElement) {
+                itemsTotalElement.textContent = RetroShop.utils.formatPrice(cart.total);
+            }
+            
+            if (itemsCountElement) {
+                itemsCountElement.textContent = cart.itemCount;
+            }
+
+            // Расчет стоимости доставки
+            const deliveryRadios = document.querySelectorAll('input[name="delivery"]');
+            let deliveryCost = 0;
+            
+            deliveryRadios.forEach(radio => {
+                if (radio.checked) {
+                    if (radio.value === 'courier') {
+                        deliveryCost = cart.total >= RetroShop.config.freeShippingAmount ? 0 : 300;
+                    } else if (radio.value === 'post') {
+                        deliveryCost = 400;
+                    } else if (radio.value === 'pickup') {
+                        deliveryCost = 0;
+                    }
+                }
+            });
+
+            if (shippingElement) {
+                shippingElement.textContent = deliveryCost === 0 ? 'Бесплатно' : RetroShop.utils.formatPrice(deliveryCost);
+            }
+
+            // Обновляем цену доставки для курьера
+            const courierPriceElement = document.getElementById('delivery-courier-price');
+            if (courierPriceElement) {
+                courierPriceElement.textContent = cart.total >= RetroShop.config.freeShippingAmount ? 'Бесплатно' : '300 ₽';
+            }
+
+            // Итоговая сумма
+            const finalTotal = cart.total + deliveryCost;
+            if (finalTotalElement) {
+                finalTotalElement.textContent = RetroShop.utils.formatPrice(finalTotal);
+            }
+
+            // Активируем кнопку отправки
+            if (submitButton) {
+                submitButton.disabled = false;
+            }
+        }
+
+        // Обновляем при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Первоначальное обновление
+            updateCheckoutSummary();
+
+            // Обновляем при изменении способа доставки
+            const deliveryRadios = document.querySelectorAll('input[name="delivery"]');
+            deliveryRadios.forEach(radio => {
+                radio.addEventListener('change', updateCheckoutSummary);
+            });
+
+            // Слушаем изменения в корзине
+            const originalUpdateUI = RetroShop.cart.updateUI;
+            RetroShop.cart.updateUI = function() {
+                originalUpdateUI.call(this);
+                updateCheckoutSummary();
+            };
+        });
+
+        // Обработка формы заказа
+        document.getElementById('checkout-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            RetroShop.processCheckout();
+        });
+    </script>
+</body>
+</html>

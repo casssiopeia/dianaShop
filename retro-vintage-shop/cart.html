@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - Ретро и Винтаж</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Ретро и Винтаж</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="products.html">Товары</a></li>
+                <li><a href="cart.html">Корзина (<span id="cart-count">0</span>)</a></li>
+                <li><a href="orders.html">Мои заказы</a></li>
+                <li><a href="complaint.html">Обращения</a></li>
+                <li><a href="info.html">Юридическая информация</a></li>
+                            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="cart-page">
+                <h1>Корзина покупок</h1>
+                
+                <div class="cart-content">
+                    <div class="cart-items-section">
+                        <div id="cart-items">
+                            <!-- Товары будут добавлены через JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="cart-summary">
+                        <div class="summary-card">
+                            <h3>Сводка заказа</h3>
+                            
+                            <div class="summary-line">
+                                <span>Товары (<span id="items-count">0</span>):</span>
+                                <span id="items-total">0 ₽</span>
+                            </div>
+                            
+                            <div class="summary-line">
+                                <span>Доставка:</span>
+                                <span id="shipping-cost">0 ₽</span>
+                            </div>
+                            
+                            <div class="summary-line discount">
+                                <span>Скидка:</span>
+                                <span>-<span id="discount-amount">0 ₽</span></span>
+                            </div>
+                            
+                            <div class="summary-total">
+                                <span>Итого:</span>
+                                <span id="total-price">0 ₽</span>
+                            </div>
+                            
+                            <div class="free-shipping-message" id="free-shipping-message" style="display: none;">
+                                🎉 Добавьте товаров еще на <span id="free-shipping-remaining">5 000 ₽</span> для бесплатной доставки!
+                            </div>
+                            
+                            <a href="checkout.html" class="btn checkout-btn" id="checkout-btn" style="display: none;">
+                                Перейти к оформлению
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            
+                            <button class="continue-shopping-btn" onclick="window.location.href='products.html'">
+                                ← Продолжить покупки
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>Телефон: +7 (495) 123-45-67</p>
+                    <p>Email: info@retro-vintage.ru</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Режим работы</h4>
+                    <p>Пн-Пт: 9:00-18:00</p>
+                    <p>Сб-Вс: 10:00-16:00</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Юридическая информация</h4>
+                    <p><a href="info.html">Вся юридическая информация</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <!-- УДАЛИТЕ ЭТУ СТРОКУ: <script src="js/cart.js"></script> -->
+    
+    <script>
+        // Дополнительный скрипт для обновления итоговой суммы в корзине
+        function updateCartSummary() {
+            const cart = RetroShop.cart;
+            const itemsTotalElement = document.getElementById('items-total');
+            const itemsCountElement = document.getElementById('items-count');
+            const shippingCostElement = document.getElementById('shipping-cost');
+            const totalPriceElement = document.getElementById('total-price');
+            const freeShippingMessage = document.getElementById('free-shipping-message');
+            const freeShippingRemaining = document.getElementById('free-shipping-remaining');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            if (itemsTotalElement) {
+                itemsTotalElement.textContent = RetroShop.utils.formatPrice(cart.total);
+            }
+            
+            if (itemsCountElement) {
+                itemsCountElement.textContent = cart.itemCount;
+            }
+
+            // Расчет доставки
+            const shippingCost = cart.total >= RetroShop.config.freeShippingAmount ? 0 : RetroShop.config.shippingCost;
+            if (shippingCostElement) {
+                shippingCostElement.textContent = shippingCost === 0 ? 'Бесплатно' : RetroShop.utils.formatPrice(shippingCost);
+            }
+
+            // Итоговая сумма
+            const finalTotal = cart.total + shippingCost;
+            if (totalPriceElement) {
+                totalPriceElement.textContent = RetroShop.utils.formatPrice(finalTotal);
+            }
+
+            // Сообщение о бесплатной доставке
+            if (freeShippingMessage && freeShippingRemaining) {
+                if (cart.total < RetroShop.config.freeShippingAmount && cart.total > 0) {
+                    const remaining = RetroShop.config.freeShippingAmount - cart.total;
+                    freeShippingRemaining.textContent = RetroShop.utils.formatPrice(remaining);
+                    freeShippingMessage.style.display = 'block';
+                } else {
+                    freeShippingMessage.style.display = 'none';
+                }
+            }
+
+            // Кнопка оформления заказа
+            if (checkoutBtn) {
+                checkoutBtn.style.display = cart.items.length > 0 ? 'block' : 'none';
+            }
+        }
+
+        // Обновляем итоги при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Слушаем изменения в корзине
+            const originalUpdateUI = RetroShop.cart.updateUI;
+            RetroShop.cart.updateUI = function() {
+                originalUpdateUI.call(this);
+                updateCartSummary();
+            };
+            
+            // Первоначальное обновление
+            updateCartSummary();
+        });
+    </script>
+</body>
+</html>
