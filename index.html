@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ретро и Винтаж - Магазин винтажных товаров</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Ретро и Винтаж</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="products.html">Товары</a></li>
+                <li><a href="cart.html">Корзина (<span id="cart-count">0</span>)</a></li>
+                <li><a href="orders.html">Мои заказы</a></li>
+                <li><a href="complaint.html">Обращения</a></li>
+                <li><a href="info.html">Юридическая информация</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Найди свою историю в каждом предмете</h2>
+                <p>Винтажная одежда, ретро техника и уникальный декор</p>
+                <a href="products.html" class="btn">Смотреть товары</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="feature">
+                    <div class="feature-icon">★</div>
+                    <h3>Качество</h3>
+                    <p>Все товары тщательно отобраны и проверены</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📖</div>
+                    <h3>История</h3>
+                    <p>Каждый предмет имеет свою уникальную историю</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Доставка</h3>
+                    <p>Быстрая доставка по всей стране</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- В разделе featured-products замените существующие карточки на эти: -->
+<section class="featured-products">
+    <div class="container">
+        <h2>Популярные товары</h2>
+        <div class="products-grid" id="featured-products">
+            <!-- Товар 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/product1.jpg" alt="Винтажное платье 70-х">
+                    <div class="product-badge">Хит</div>
+                    <div class="product-overlay">
+                        <button class="quick-view-btn" data-product="1">Быстрый просмотр</button>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Винтажное платье 70-х</h3>
+                    <p class="product-description">Элегантное винтажное платье в стиле 1970-х годов</p>
+                    <div class="product-price">
+                        <span class="current-price">4 500 ₽</span>
+                        <span class="original-price">6 000 ₽</span>
+                    </div>
+                    <div class="product-meta">
+                        <span class="product-era">1970-е</span>
+                        <span class="product-stock">В наличии</span>
+                    </div>
+                    
+                    <!-- ОБНОВЛЕННАЯ СЕКЦИЯ: Юридическая информация о товаре -->
+                    <div class="product-legal-info">
+                        <div class="legal-header">
+                            <div class="legal-icon">⚖️</div>
+                            <h4>Юридическая информация</h4>
+                        </div>
+                        
+                        <div class="legal-badges-grid">
+                            <div class="legal-badge-item">
+                                <span class="badge-icon">🌍</span>
+                                <span class="badge-text">СССР</span>
+                            </div>
+                            <div class="legal-badge-item">
+                                <span class="badge-icon">🔄</span>
+                                <span class="badge-text">Б/у</span>
+                            </div>
+                            <div class="legal-badge-item">
+                                <span class="badge-icon">👕</span>
+                                <span class="badge-text">Одежда</span>
+                            </div>
+                        </div>
+                        
+                        <div class="legal-full-info" style="display: none;">
+                            <div class="legal-info-grid">
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Страна происхождения:</span>
+                                    <span class="legal-value">СССР</span>
+                                </div>
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Изготовитель:</span>
+                                    <span class="legal-value">Московская швейная фабрика</span>
+                                </div>
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Состояние:</span>
+                                    <span class="legal-value">Бывшее в употреблении, отличное</span>
+                                </div>
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Сертификация:</span>
+                                    <span class="legal-value">Не подлежит обязательной сертификации</span>
+                                </div>
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Гарантийный срок:</span>
+                                    <span class="legal-value">14 дней</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="legal-info-toggle" onclick="toggleLegalInfo(this)">
+                            <span class="toggle-icon">ℹ️</span>
+                            <span class="toggle-text">Показать юридическую информацию</span>
+                            <span class="toggle-arrow">▼</span>
+                        </button>
+                    </div>
+                    
+                    <button class="add-to-cart-btn" data-product="1">
+                        Добавить в корзину
+                    </button>
+                </div>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/product2.jpg" alt="Ретро радиоприемник">
+                    <div class="product-badge new">Новинка</div>
+                    <div class="product-overlay">
+                        <button class="quick-view-btn" data-product="2">Быстрый просмотр</button>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Ретро радиоприемник</h3>
+                    <p class="product-description">Деревянный радиоприемник в идеальном состоянии</p>
+                    <div class="product-price">
+                        <span class="current-price">12 000 ₽</span>
+                        <span class="original-price">15 000 ₽</span>
+                    </div>
+                    <div class="product-meta">
+                        <span class="product-era">1960-е</span>
+                        <span class="product-stock">В наличии</span>
+                    </div>
+                    
+                    <!-- ОБНОВЛЕННАЯ СЕКЦИЯ: Юридическая информация о товаре -->
+                    <div class="product-legal-info">
+                        <div class="legal-header">
+                            <div class="legal-icon">⚖️</div>
+                            <h4>Юридическая информация</h4>
+                        </div>
+                        
+                        <div class="legal-badges-grid">
+                            <div class="legal-badge-item">
+                                <span class="badge-icon">🌍</span>
+                                <span class="badge-text">Германия</span>
+                            </div>
+                            <div class="legal-badge-item">
+                                <span class="badge-icon">🔄</span>
+                                <span class="badge-text">Б/у</span>
+                            </div>
+                            <div class="legal-badge-item">
+                                <span class="badge-icon">⚡</span>
+                                <span class="badge-text">Электроприбор</span>
+                            </div>
+                        </div>
+                        
+                        <div class="legal-full-info" style="display: none;">
+                            <div class="legal-info-grid">
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Страна происхождения:</span>
+                                    <span class="legal-value">Германия</span>
+                                </div>
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Изготовитель:</span>
+                                    <span class="legal-value">Grundig</span>
+                                </div>
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Состояние:</span>
+                                    <span class="legal-value">Бывшее в употреблении, рабочее</span>
+                                </div>
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Сертификация:</span>
+                                    <span class="legal-value">Не подлежит обязательной сертификации</span>
+                                </div>
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Гарантийный срок:</span>
+                                    <span class="legal-value">14 дней</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="legal-info-toggle" onclick="toggleLegalInfo(this)">
+                            <span class="toggle-icon">ℹ️</span>
+                            <span class="toggle-text">Показать юридическую информацию</span>
+                            <span class="toggle-arrow">▼</span>
+                        </button>
+                    </div>
+                    
+                    <button class="add-to-cart-btn" data-product="2">
+                        Добавить в корзину
+                    </button>
+                </div>
+            </div>
+
+            <!-- Товар 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="images/product4.jpg" alt="Зенит ЕТ">
+                    <div class="product-badge featured">Рекомендуем</div>
+                    <div class="product-overlay">
+                        <button class="quick-view-btn" data-product="4">Быстрый просмотр</button>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Зенит ЕТ</h3>
+                    <p class="product-description">Советский плёночный фотоаппарат-легенда</p>
+                    <div class="product-price">
+                        <span class="current-price">6 300 ₽</span>
+                        <span class="original-price">8 000 ₽</span>
+                    </div>
+                    <div class="product-meta">
+                        <span class="product-era">1980-е</span>
+                        <span class="product-stock">В наличии</span>
+                    </div>
+                    
+                    <!-- ОБНОВЛЕННАЯ СЕКЦИЯ: Юридическая информация о товаре -->
+                    <div class="product-legal-info">
+                        <div class="legal-header">
+                            <div class="legal-icon">⚖️</div>
+                            <h4>Юридическая информация</h4>
+                        </div>
+                        
+                        <div class="legal-badges-grid">
+                            <div class="legal-badge-item">
+                                <span class="badge-icon">🌍</span>
+                                <span class="badge-text">СССР</span>
+                            </div>
+                            <div class="legal-badge-item">
+                                <span class="badge-icon">🔄</span>
+                                <span class="badge-text">Б/у</span>
+                            </div>
+                            <div class="legal-badge-item">
+                                <span class="badge-icon">📸</span>
+                                <span class="badge-text">Фототехника</span>
+                            </div>
+                        </div>
+                        
+                        <div class="legal-full-info" style="display: none;">
+                            <div class="legal-info-grid">
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Страна происхождения:</span>
+                                    <span class="legal-value">СССР</span>
+                                </div>
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Изготовитель:</span>
+                                    <span class="legal-value">Красногорский механический завод</span>
+                                </div>
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Состояние:</span>
+                                    <span class="legal-value">Бывшее в употреблении, рабочее</span>
+                                </div>
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Сертификация:</span>
+                                    <span class="legal-value">Не подлежит обязательной сертификации</span>
+                                </div>
+                                <div class="legal-info-item">
+                                    <span class="legal-label">Гарантийный срок:</span>
+                                    <span class="legal-value">14 дней</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="legal-info-toggle" onclick="toggleLegalInfo(this)">
+                            <span class="toggle-icon">ℹ️</span>
+                            <span class="toggle-text">Показать юридическую информацию</span>
+                            <span class="toggle-arrow">▼</span>
+                        </button>
+                    </div>
+                    
+                    <button class="add-to-cart-btn" data-product="4">
+                        Добавить в корзину
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>Телефон: +7 (495) 123-45-67</p>
+                    <p>Email: info@retro-vintage.ru</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Режим работы</h4>
+                    <p>Пн-Пт: 9:00-18:00</p>
+                    <p>Сб-Вс: 10:00-16:00</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Юридическая информация</h4>
+                    <p><a href="info.html">Вся юридическая информация</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+     <!-- Модальное окно для товаров -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProductModal()">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Контент будет заполняться JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

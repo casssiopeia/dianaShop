@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обращения - Ретро и Винтаж</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Ретро и Винтаж</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="products.html">Товары</a></li>
+                <li><a href="cart.html">Корзина (<span id="cart-count">0</span>)</a></li>
+                <li><a href="orders.html">Мои заказы</a></li>
+                <li><a href="complaint.html">Обращения</a></li>
+                <li><a href="info.html">Юридическая информация</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="complaint-page">
+                <h1>Обращения потребителей</h1>
+                <p class="page-subtitle">Форма для подачи обращений о нарушении прав потребителей</p>
+                
+                <div class="complaint-info">
+                    <div class="info-card">
+                        <h3>📞 Контактная информация</h3>
+                        <p><strong>Уполномоченное лицо:</strong> Иванова Мария Петровна</p>
+                        <p><strong>Телефон:</strong> +7 (495) 123-45-69</p>
+                        <p><strong>Email:</strong> complaints@retro-vintage.ru</p>
+                        <p><strong>Адрес для письменных обращений:</strong> 123456, г. Москва, ул. Винтажная, д. 15, строение 2, офис 101</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>⏰ Сроки рассмотрения</h3>
+                        <p><strong>Претензии по качеству товара:</strong> 10 рабочих дней</p>
+                        <p><strong>Возврат товара:</strong> 7 дней с момента получения</p>
+                        <p><strong>Возврат денежных средств:</strong> 10 рабочих дней</p>
+                        <p><strong>Ответ на обращение:</strong> 30 календарных дней</p>
+                    </div>
+                </div>
+
+                <form id="complaint-form" class="complaint-form">
+                    <div class="form-section">
+                        <h2>👤 Информация о заявителе</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="complaint-name">ФИО *</label>
+                                <input type="text" id="complaint-name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="complaint-phone">Телефон *</label>
+                                <input type="tel" id="complaint-phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="complaint-email">Email *</label>
+                                <input type="email" id="complaint-email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="complaint-address">Адрес</label>
+                                <input type="text" id="complaint-address" name="address">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>📋 Информация о обращении</h2>
+                        <div class="form-group">
+                            <label for="complaint-type">Тип обращения *</label>
+                            <select id="complaint-type" name="type" required>
+                                <option value="">Выберите тип обращения</option>
+                                <option value="quality">Претензия по качеству товара</option>
+                                <option value="return">Возврат товара</option>
+                                <option value="refund">Возврат денежных средств</option>
+                                <option value="delivery">Проблемы с доставкой</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="complaint-order">Номер заказа (если есть)</label>
+                            <input type="text" id="complaint-order" name="order_number">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="complaint-product">Наименование товара *</label>
+                            <input type="text" id="complaint-product" name="product" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="complaint-description">Подробное описание проблемы *</label>
+                            <textarea id="complaint-description" name="description" rows="6" required placeholder="Опишите подробно суть проблемы, когда был сделан заказ, какие недостатки обнаружены и т.д."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="complaint-requirement">Ваши требования *</label>
+                            <select id="complaint-requirement" name="requirement" required>
+                                <option value="">Выберите требование</option>
+                                <option value="repair">Безвозмездное устранение недостатков</option>
+                                <option value="replace">Замена товара</option>
+                                <option value="refund">Возврат денежных средств</option>
+                                <option value="price_reduction">Соразмерное уменьшение цены</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>📎 Приложения</h2>
+                        <div class="form-group">
+                            <label for="complaint-files">Дополнительные материалы (фото, видео, документы)</label>
+                            <input type="file" id="complaint-files" name="files" multiple accept="image/*,.pdf,.doc,.docx">
+                            <small>Максимальный размер файла: 10MB. Разрешены: JPG, PNG, PDF, DOC</small>
+                        </div>
+                    </div>
+
+                    <div class="form-notice">
+                        <h3>ℹ️ Важная информация</h3>
+                        <ul>
+                            <li>Обращения рассматриваются в течение 30 календарных дней</li>
+                            <li>Для возврата товара сохраните оригинальную упаковку и товарный вид</li>
+                            <li>При возврате денежных средств средства будут перечислены на тот же способ оплаты, который использовался при заказе</li>
+                            <li>В случае спора о причинах возникновения недостатков товара может быть проведена экспертиза</li>
+                        </ul>
+                    </div>
+
+                    <button type="submit" class="btn submit-complaint-btn">
+                        <span>Отправить обращение</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>Телефон: +7 (495) 123-45-67</p>
+                    <p>Email: info@retro-vintage.ru</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Режим работы</h4>
+                    <p>Пн-Пт: 9:00-18:00</p>
+                    <p>Сб-Вс: 10:00-16:00</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Юридическая информация</h4>
+                    <p><a href="info.html">Вся юридическая информация</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Обработка формы обращения
+        document.getElementById('complaint-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const complaintData = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                type: formData.get('type'),
+                product: formData.get('product'),
+                description: formData.get('description'),
+                requirement: formData.get('requirement'),
+                timestamp: new Date().toISOString(),
+                number: 'COMP-' + Date.now()
+            };
+            
+            // Сохраняем обращение в localStorage
+            let complaints = JSON.parse(localStorage.getItem('complaints')) || [];
+            complaints.push(complaintData);
+            localStorage.setItem('complaints', JSON.stringify(complaints));
+            
+            alert('Обращение отправлено! Номер вашего обращения: ' + complaintData.number + '\nМы свяжемся с вами в течение 3 рабочих дней.');
+            this.reset();
+        });
+        
+        // Маска для телефона
+        document.getElementById('complaint-phone').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.startsWith('7') || value.startsWith('8')) {
+                value = value.substring(1);
+            }
+            
+            let formattedValue = '+7 (';
+            if (value.length > 0) formattedValue += value.substring(0, 3);
+            if (value.length > 3) formattedValue += ') ' + value.substring(3, 6);
+            if (value.length > 6) formattedValue += '-' + value.substring(6, 8);
+            if (value.length > 8) formattedValue += '-' + value.substring(8, 10);
+            
+            e.target.value = formattedValue;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои заказы - Ретро и Винтаж</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Ретро и Винтаж</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="products.html">Товары</a></li>
+                <li><a href="cart.html">Корзина (<span id="cart-count">0</span>)</a></li>
+                <li><a href="orders.html">Мои заказы</a></li>
+                <li><a href="complaint.html">Обращения</a></li>
+                <li><a href="info.html">Юридическая информация</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="orders-page">
+                <h1>Мои заказы</h1>
+                <p class="page-subtitle">История ваших покупок и статусы доставки</p>
+                
+                <div class="orders-filters">
+                    <button class="filter-btn active" data-filter="all">Все заказы</button>
+                    <button class="filter-btn" data-filter="processing">Обрабатывается</button>
+                    <button class="filter-btn" data-filter="shipped">Отправлены</button>
+                    <button class="filter-btn" data-filter="delivered">Доставлены</button>
+                </div>
+
+                <div class="orders-list" id="orders-list">
+                    <!-- Заказы будут добавлены через JavaScript -->
+                </div>
+
+                <div class="orders-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="total-orders">0</span>
+                            <span class="stat-label">Всего заказов</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🚚</div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="active-orders">0</span>
+                            <span class="stat-label">Активные заказы</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="total-spent">0 ₽</span>
+                            <span class="stat-label">Всего потрачено</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>Телефон: +7 (495) 123-45-67</p>
+                    <p>Email: info@retro-vintage.ru</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Режим работы</h4>
+                    <p>Пн-Пт: 9:00-18:00</p>
+                    <p>Сб-Вс: 10:00-16:00</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Юридическая информация</h4>
+                    <p><a href="info.html">Вся юридическая информация</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/orders.js"></script>
+</body>
+</html>
